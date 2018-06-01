@@ -1,29 +1,41 @@
 package com.iwill;
 
+import com.github.springtestdbunit.DbUnitTestExecutionListener;
+import com.github.springtestdbunit.annotation.DatabaseOperation;
+import com.github.springtestdbunit.annotation.DatabaseSetup;
+import com.github.springtestdbunit.annotation.DbUnitConfiguration;
+import com.iwill.controller.UserController;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.TestExecutionListeners;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
+import org.springframework.test.context.support.DirtiesContextTestExecutionListener;
+import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 
-import java.util.HashMap;
-import java.util.Map;
-
-@RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringBootTest(classes = CustomerApplication.class)
+@ActiveProfiles("test")
+@TestExecutionListeners({DependencyInjectionTestExecutionListener.class,
+        DirtiesContextTestExecutionListener.class,
+        TransactionalTestExecutionListener.class,
+        DbUnitTestExecutionListener.class})
+@DbUnitConfiguration(dataSetLoader = XlsDataSetLoader.class)
 public class UserControllerTest {
 
     @Autowired
-    private TestRestTemplate restTemplate;
+    private UserController userController;
 
     @Test
-    public void testGetUserInfo() {
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("userId", "12345");
-        String body = restTemplate.getForObject("/user/get-user-info?userId={userId}", String.class, params);
-        Assert.assertEquals(body, "SUCCESS");
+    @DatabaseSetup(value = {"/data/getuserInfo.xls"}, type = DatabaseOperation.CLEAN_INSERT)
+    public void test() {
+        String result = userController.getUserInfo("1234");
+        Assert.assertTrue(result.equals("SUCCESS"));
     }
+
 
 }
