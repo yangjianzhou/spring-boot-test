@@ -15,7 +15,7 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-    @Reference
+    @Reference(lazy = true)
     private IProductService productService ;
 
     public User getUserByUserId(Long userId) {

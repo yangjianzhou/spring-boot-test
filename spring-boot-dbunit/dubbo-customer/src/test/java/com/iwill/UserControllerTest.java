@@ -49,5 +49,4 @@ public class UserControllerTest {
         Assert.assertTrue(result.equals("SUCCESS"));
     }
 
-
 }
