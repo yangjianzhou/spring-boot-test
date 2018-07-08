@@ -19,3 +19,10 @@ out
 bin/
 data/*
 *workspace.xml
+*/workspace.xml
+*/*.iml
+*/*/*.iml
+target/*
+*/target/*
+*/*/target/*
+*/*/*/target/*
