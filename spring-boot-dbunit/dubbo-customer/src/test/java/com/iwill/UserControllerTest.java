@@ -38,7 +38,7 @@ public class UserControllerTest {
     private UserService userService;
 
     @Test
-    @DatabaseSetup(value = {"/data/getUserInfo.xls"}, type = DatabaseOperation.CLEAN_INSERT)
+   // @DatabaseSetup(value = {"/data/getUserInfo.xls"}, type = DatabaseOperation.CLEAN_INSERT)
     public void test() {
         IProductService productService = Mockito.mock(IProductService.class);
         Mockito.when(productService.getProductName(Mockito.anyLong())).thenReturn("mock");
