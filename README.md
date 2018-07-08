@@ -1,1 +1,1 @@
-# spring-boot-test
+# org.unitils.spring-boot-test
