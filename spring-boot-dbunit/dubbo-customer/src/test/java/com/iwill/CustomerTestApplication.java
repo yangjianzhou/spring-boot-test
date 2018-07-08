@@ -7,12 +7,12 @@ import org.springframework.context.annotation.ComponentScan;
 import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication
-@ComponentScan({"com.iwill"/*,"org.unitils.boot.autoconfigure"*/})
+@ComponentScan({"com.iwill","org.unitils.boot.autoconfigure"})
 @MapperScan(basePackages = "com.iwill.mapper")
-@EnableDubboConfiguration
-public class CustomerApplication {
+//@EnableDubboConfiguration
+public class CustomerTestApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CustomerApplication.class, args);
+        SpringApplication.run(CustomerTestApplication.class, args);
     }
 }

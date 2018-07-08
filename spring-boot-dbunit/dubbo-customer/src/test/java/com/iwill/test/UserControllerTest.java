@@ -1,24 +1,22 @@
 package com.iwill.test;
 
-import com.iwill.CustomerApplication;
+import com.iwill.CustomerTestApplication;
 import com.iwill.controller.UserController;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.ActiveProfiles;
+import org.unitils.boot.util.BootUnitilsBlockJUnit4ClassRunner;
 import org.unitils.database.annotations.Transactional;
 import org.unitils.database.util.TransactionMode;
 import org.unitils.dbunit.annotation.DataSet;
 import org.unitils.spring.annotation.SpringBeanByType;
-import org.unitils.spring.util.UnitilsBlockJUnit4ClassRunner;
 
-@RunWith(UnitilsBlockJUnit4ClassRunner.class)
-@SpringBootTest(classes = CustomerApplication.class)
+@RunWith(BootUnitilsBlockJUnit4ClassRunner.class)
+@SpringBootTest(classes = CustomerTestApplication.class)
 @ActiveProfiles("test")
 @Transactional(value = TransactionMode.ROLLBACK)
-@ComponentScan("org.unitils.spring")
 public class UserControllerTest {
 
     @SpringBeanByType

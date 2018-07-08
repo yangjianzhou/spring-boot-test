@@ -43,11 +43,11 @@
             <!--<version>3.4.6</version>-->
         <!--</dependency>-->
         <dependency>
-            <artifactId>unitils-spring-ext</artifactId>
+            <artifactId>spring-boot-unitils-starter</artifactId>
             <groupId>com.iwill</groupId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.3-SNAPSHOT</version>
             <scope>system</scope>
-            <systemPath>/Users/iwill/.m2/repository/com/iwill/unitils-spring-ext/1.0-SNAPSHOT/unitils-spring-ext-1.0-SNAPSHOT.jar</systemPath>
+            <systemPath>/home/iwill/.m2/repository/com/iwill/spring-boot-unitils-starter/1.3-SNAPSHOT/spring-boot-unitils-starter-1.3-SNAPSHOT.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
@@ -70,7 +70,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
+            <version>5.1.46</version>
         </dependency>
 
         <dependency>
@@ -90,6 +90,8 @@
             <groupId>com.iwill</groupId>
             <artifactId>dubbo-api</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>/home/iwill/.m2/repository/com/iwill/dubbo-api/1.0-SNAPSHOT/dubbo-api-1.0-SNAPSHOT.jar</systemPath>
         </dependency>
 
         <dependency>

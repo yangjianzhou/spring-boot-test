@@ -17,6 +17,7 @@
         <module>dubbo-provider</module>
         <module>dubbo-api</module>
         <module>unitils-spring-ext</module>
+        <module>spring-boot-unitils-starter</module>
     </modules>
 
 </project>
